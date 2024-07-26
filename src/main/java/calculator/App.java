@@ -7,13 +7,28 @@ public class App {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        System.out.print("첫 번째 숫자를 입력하세요 : ");
+        int result = 0;
+        System.out.println("숫자 연산자 숫자 순으로 입력하세요.(입력값 공백으로 구분) "); // 입력 한번에 받음
         int firstNumber = sc.nextInt(); //nextInt로 숫자 받아서 초기화
-        System.out.print("두 번째 숫자를 입력하세요 : ");
+        char operator = sc.next().charAt(0);//sc.next()로 문자열을 받은 후 0번째 char를 가져옴
         int secondNumber = sc.nextInt();
-        System.out.print("사칙연산 기호를 입력하세요 : ");
-        char operator = sc.next().charAt(0); //sc.next()로 문자열을 받은 후 0번째 char를 가져옴
-        System.out.printf("%d %d %c ",firstNumber,secondNumber,operator);
+        try {
+            switch (operator) { //개선된 switch문을 활용해 연산기호를 받아 알맞은 연산 실행
+                case '+' -> result = firstNumber + secondNumber;
+                case '-' -> result = firstNumber - secondNumber;
+                case '/' -> {
+                    if (secondNumber == 0) { // 두번째 정수가 0이면 오류메세지 출력
+                        throw new ArithmeticException("나눗셈 연산에서 분모에는 0이 올 수 없습니다."); // Exception 생성자를 이용해 오류메세지와 함께 예외 던짐
+                    } else {
+                        result = firstNumber / secondNumber;
+                    }
+                }
+                case '*' -> result = firstNumber * secondNumber;
+            }
+            System.out.printf("%d %c %d 결과 : %d",firstNumber,operator,secondNumber,result);
+        }catch (ArithmeticException e){ 
+            System.out.println(e.getMessage());//e.getmessage()를 이용해 throw한 예외의 오류메세지 출력
+        } //try-catch문 활용해서 예외 처리
+
     }
 }
