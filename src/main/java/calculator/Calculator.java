@@ -22,7 +22,7 @@ public class Calculator {
       case '*' -> result = firstNumber * secondNumber;
       default -> throw new IllegalArgumentException("연산 기호가 잘못되었습니다.");//연산기호가 잘못됬을 경우 IllegalArgumentException throw
     }
-    results.add(result);
+    this.results.add(result); // calculator 클래스 안의 컬렉션에 저장
     return result;
   }
 }
