@@ -31,16 +31,17 @@ public class App {
                 }
                 System.out.printf("%d %c %d 결과 : %d\n", firstNumber, operator, secondNumber, result);
                 results.add(result); //ArrayList의 add메소드를 사용해 저장
-                for(int i : results) { // foreach문을 활용해 results 내용 출력
-                    System.out.printf("%d ",i);
-                }
-                System.out.println();
-                System.out.println("remove 입력 시 첫번째 결과 삭제 (exit 입력 시 종료)");
+                System.out.println("remove 0번째 결과 삭제 | inquiry 결과 값 조회 (exit 입력 시 종료)"); 
                 String func = sc.next(); // sc.next()로 비교하면 입력 버퍼의 문자열이 사라지므로 String에 담아서 입력값 확인
                 if(func.equals("exit")){
                     break;
                 } else if(func.equals("remove")){
                     results.remove(0);//ArrayList의 remove 메소드를 이용해 0번째 결과 값 삭제
+                } else if(func.equals("inquiry")){ // inquiry 기능 구현
+                    for(int i : results) { // foreach문을 활용해 results 내용 출력
+                        System.out.printf("%d ",i);
+                    }
+                    System.out.println();
                 }
             } catch (ArithmeticException e) {
                 System.out.println(e.getMessage());//e.getmessage()를 이용해 throw한 예외의 오류메세지 출력
