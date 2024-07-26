@@ -33,6 +33,12 @@ public class App {
                 System.out.printf("%d %c %d 결과 : %d\n", firstNumber, operator, secondNumber, result);
                 results[index] = result; // 계산 결과를 results 의 index번째에 저장
                 index++;// 다음 저장 위치로 이동
+                if(index == 10){ //배열이 꽉 찼을 경우
+                    for(int i = 0; i<9; i++){
+                        results[i] = results[i+1]; // 한칸씩 앞으로 당겨옴
+                    }
+                    index = 9; // index를 배열의 마지막 위치를 가리키도록 바꿔 새로 저장 가능하게 함
+                }
                 for(int i : results) { // foreach문을 활용해 results 내용 출력
                     System.out.printf("%d ",i);
                 }
