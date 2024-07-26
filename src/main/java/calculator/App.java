@@ -45,7 +45,9 @@ public class App {
                 }
             } catch (ArithmeticException e) {
                 System.out.println(e.getMessage());//e.getmessage()를 이용해 throw한 예외의 오류메세지 출력
-            } //try-catch문 활용해서 예외 처리
+            } catch (IllegalArgumentException e){
+                System.out.println(e.getMessage());
+            }//try-catch문 활용해서 예외 처리
         }
     }
 }
