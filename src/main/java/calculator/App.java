@@ -22,7 +22,7 @@ public class App {
                 if(func.equals("exit")){
                     break;
                 } else if(func.equals("remove")){
-                    calcInstance.getResults().remove(0);//Getter를 이용해서 간접적으로 접근
+                    calcInstance.removeResults();//removeResults 메소드를 이용해 삭제 수행
                 } else if(func.equals("inquiry")){ // inquiry 기능 구현
                     for(int i : calcInstance.getResults()) { //
                         System.out.printf("%d ",i);

@@ -11,7 +11,9 @@ public class Calculator {
   public void setResults(ArrayList<Integer> result) { //setResults()메소드를 이용해 results 수정할 수 있게 함
     this.results = result;
   }
-
+  public void removeResults(){ // 반환타입이 없기 때문에 void로 선언
+    this.results.remove(0); // 메소드 호출시 index 0번째의 값 삭제
+  }
   public int calculate(int firstNumber, int secondNumber, char operator)
       throws ArithmeticException, IllegalArgumentException {//매개변수로 양의 정수 2개 연산 기호를 받음 , throws를 활용해서 main에서 예외처리
     int result = 0;
