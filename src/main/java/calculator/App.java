@@ -21,13 +21,13 @@ public class App {
                     System.out.println("숫자 연산자 숫자 순으로 입력하세요.(입력값 공백으로 구분) "); // 입력 한번에 받음
                     int firstNumber = sc.nextInt(); //nextInt로 숫자 받아서 초기화
                     char opChar = sc.next().charAt(0);//sc.next()로 문자열을 받은 후 0번째 char를 가져옴
-                    Operator operator = switch (opChar){ //연산 기호에 따라 Operator 인스턴스 생성
-                        case '+' -> new AddOperator();
-                        case '-' -> new SubtractOperator();
-                        case '/' -> new DivideOperator();
-                        case '*' -> new MultiplyOperator();
-                        case '%' -> new ModOperator();
-                        default -> throw new IllegalArgumentException("잘못된 연산 기호입니다.");
+                    OperatorType operatorType = OperatorType.fromOperator(opChar); //반환된 상수로 operatorType 초기화
+                    Operator operator = switch (operatorType){ //연산 기호에 따라 Operator 인스턴스 생성
+                        case ADD -> new AddOperator(); // 상수에 따라 Operator생성
+                        case SUB -> new SubtractOperator();
+                        case DIV -> new DivideOperator();
+                        case MUL -> new MultiplyOperator();
+                        case MOD -> new ModOperator();
                     };
                     int secondNumber = sc.nextInt();
                     double result = ac.calculate(firstNumber, secondNumber, operator);//매개변수로 생성된 인스턴스 넘김
