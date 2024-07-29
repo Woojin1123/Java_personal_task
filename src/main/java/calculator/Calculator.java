@@ -14,6 +14,12 @@ public class Calculator {
   public void removeResults(){ // 반환타입이 없기 때문에 void로 선언
     this.results.remove(0); // 메소드 호출시 index 0번째의 값 삭제
   }
+  public void inquiryResults(){ // results를 조회하는 메소드
+    for(int i : results){ // results 컬렉션을 순회하면서 출력
+      System.out.printf("%d ",i);
+    }
+    System.out.println();
+  }
   public int calculate(int firstNumber, int secondNumber, char operator)
       throws ArithmeticException, IllegalArgumentException {//매개변수로 양의 정수 2개 연산 기호를 받음 , throws를 활용해서 main에서 예외처리
     int result = 0;

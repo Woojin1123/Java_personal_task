@@ -24,10 +24,7 @@ public class App {
                 } else if(func.equals("remove")){
                     calcInstance.removeResults();//removeResults 메소드를 이용해 삭제 수행
                 } else if(func.equals("inquiry")){ // inquiry 기능 구현
-                    for(int i : calcInstance.getResults()) { //
-                        System.out.printf("%d ",i);
-                    }
-                    System.out.println();
+                    calcInstance.inquiryResults(); // Calculator클래스의 inquiryResults 메소드를 이용해 결과 출력
                 }
                 sc.nextLine(); // 다음 반복문을 위해 스캐너 비워줌
             } catch (ArithmeticException e) {
