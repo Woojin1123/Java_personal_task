@@ -9,7 +9,7 @@ public enum OperatorType { //OperatorType enum
   public char getOpChar() { //opChar Getter
     return opChar;
   }
-  public static OperatorType fromOperator(char opChar){ // 입력된 연산기호에 맞는 enum 반환
+  public static OperatorType fromOperator(char opChar){ // 입력된 연산기호에 맞는 enum 반환, enum은 외부에서 인스턴스를 생성할 수 없으므로 static으로 메소드 선언
     for(OperatorType op : OperatorType.values()){
       if(op.getOpChar() == opChar){
         return op;
