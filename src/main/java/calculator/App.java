@@ -57,6 +57,9 @@ public class App {
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());//e.getmessage()를 이용해 throw한 예외의 오류메세지 출력
+                if(sc.hasNext()) { //입력존재하면 비우기
+                    sc.nextLine();
+                }
             }//try-catch문 활용해서 예외 처리
         }
     }
