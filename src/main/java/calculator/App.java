@@ -7,7 +7,7 @@ public class App {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Calculator calcInstance = new Calculator(); // Calculator 인스턴스 참조 변수에 주소 할당
+        Calculator calcInstance = new Calculator();
 
         while(true) { //while(true)를 이용해 break전까지 무한반복
             System.out.println("숫자 연산자 숫자 순으로 입력하세요.(입력값 공백으로 구분) "); // 입력 한번에 받음
@@ -22,13 +22,14 @@ public class App {
                 if(func.equals("exit")){
                     break;
                 } else if(func.equals("remove")){
-                    calcInstance.results.remove(0);//Calculator클래스 내부의 ArrayList에 직접 접근
+                    calcInstance.getResults().remove(0);//Getter를 이용해서 간접적으로 접근
                 } else if(func.equals("inquiry")){ // inquiry 기능 구현
-                    for(int i : calcInstance.results) { //
+                    for(int i : calcInstance.getResults()) { //
                         System.out.printf("%d ",i);
                     }
                     System.out.println();
                 }
+                sc.nextLine(); // 다음 반복문을 위해 스캐너 비워줌
             } catch (ArithmeticException e) {
                 System.out.println(e.getMessage());//e.getmessage()를 이용해 throw한 예외의 오류메세지 출력
             } catch (IllegalArgumentException e){

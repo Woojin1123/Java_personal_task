@@ -4,7 +4,13 @@ import java.util.ArrayList;
 
 public class Calculator {
 
-  ArrayList<Integer> results = new ArrayList<>();//연산 결과 저장할 ArrayList 선언 및 초기화
+  private ArrayList<Integer> results = new ArrayList<>(); //접근제어자 private를 통해 클래스 내부에서만 접근 가능하도록 함
+  public ArrayList<Integer> getResults() { // getResults() 메소드를 통해 외부에서 results에 접근할 수 있게 함
+    return results;
+  }
+  public void setResults(ArrayList<Integer> result) { //setResults()메소드를 이용해 results 수정할 수 있게 함
+    this.results = result;
+  }
 
   public int calculate(int firstNumber, int secondNumber, char operator)
       throws ArithmeticException, IllegalArgumentException {//매개변수로 양의 정수 2개 연산 기호를 받음 , throws를 활용해서 main에서 예외처리
