@@ -11,22 +11,11 @@ public class ArithmeticCalculator extends Calculator {//Calculator상속
     }
     System.out.println();
   }
-  public double calculate(int firstNumber, int secondNumber, char operator)
+  public double calculate(int firstNumber, int secondNumber, Operator operator) // 인터페이스를 상속해 생성한 인스턴스를 매개변수로 받아서 인스턴스에 따라 operate수행
       throws ArithmeticException, IllegalArgumentException {//매개변수로 양의 정수 2개 연산 기호를 받음 , throws를 활용해서 main에서 예외처리
     double result = 0;
-    switch (operator) { //main의 switch문 활용해서 구현
-      case '+' -> result = add.operate(firstNumber,secondNumber); // Calculator클래스에서 생성한 연산클래스 인스턴스를 사용해 operate메소드를 불러와 계산
-      case '-' -> result = sub.operate(firstNumber,secondNumber);
-      case '/' -> {
-        if (secondNumber == 0) { // 두번째 숫자가 0일 경우 ArithmeticException throw
-          throw new ArithmeticException("나눗셈 연산에서 분모에는 0이 올 수 없습니다.");
-        } else {
-          result = div.operate(firstNumber,secondNumber); // 저장결과 타입이 double로 바뀌었기 때문에 double로 형변환해서 계산
-        }
-      }
-      case '*' ->  result = mul.operate(firstNumber,secondNumber);
-      default -> throw new IllegalArgumentException("연산 기호가 잘못되었습니다.");//연산기호가 잘못됬을 경우 IllegalArgumentException throw
-    }
+    setOp(operator);
+    result = getOp().operate(firstNumber,secondNumber);// calculate는 연산기호가 추가되는것에 상관없이 operate만 수행
     getResults().add(result); // calculator 클래스 안의 컬렉션에 저장
     return result;
   }
