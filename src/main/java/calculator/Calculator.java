@@ -3,8 +3,10 @@ package calculator;
 import java.util.ArrayList;
 
 public class Calculator {
-
-  private ArrayList<Integer> results = new ArrayList<>(); //접근제어자 private를 통해 클래스 내부에서만 접근 가능하도록 함
+  private ArrayList<Integer> results; //생성자를 통해 초기화 하기 위해 선언만 해줌
+  Calculator(){ // Calculator 클래스 생성자
+    results = new ArrayList<>(); // 생성자 통해 results초기화
+  }
   public ArrayList<Integer> getResults() { // getResults() 메소드를 통해 외부에서 results에 접근할 수 있게 함
     return results;
   }

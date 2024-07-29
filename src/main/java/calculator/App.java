@@ -7,7 +7,7 @@ public class App {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Calculator calcInstance = new Calculator();
+        Calculator calcInstance = new Calculator(); // Calculator 생성자를 통해 results가 초기화됨
 
         while(true) { //while(true)를 이용해 break전까지 무한반복
             System.out.println("숫자 연산자 숫자 순으로 입력하세요.(입력값 공백으로 구분) "); // 입력 한번에 받음
