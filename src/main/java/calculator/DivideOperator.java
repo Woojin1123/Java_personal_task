@@ -2,7 +2,7 @@ package calculator;
 
 public class DivideOperator implements Operator {
   @Override
-  public double operate(int firstNumber,int secondNumber){
+  public double operate(int firstNumber,int secondNumber) throws ArithmeticException {
     if(secondNumber == 0){
       throw new ArithmeticException("분모에는 0이 올 수 없습니다.");
     }
