@@ -2,7 +2,6 @@ package calculator;
 import java.util.Scanner;
 
 public class App {
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArithmeticCalculator<Double> ac = new ArithmeticCalculator<>(); //인스턴스 생성 시 <Double> 로 타입을 지정
@@ -24,7 +23,7 @@ public class App {
                     ac.getResults().add(result); // calculator 클래스 안의 컬렉션에 저장
                     System.out.printf("%.4f %c %.4f 결과 : %.4f\n", firstNumber, opChar, secondNumber,
                         result);
-                    System.out.println("remove 0번째 결과 삭제 | inquiry 결과 값 조회 (exit 입력 시 종료)");
+                    System.out.println("remove 0번째 결과 삭제 | inquiry 결과 값 조회 | lambda 입력 값 보다 큰 결과 조회 (exit 입력 시 종료)");
                     String func = sc.next(); // sc.next()로 비교하면 입력 버퍼의 문자열이 사라지므로 String에 담아서 입력값 확인
                     if (func.equals("exit")) {
                         break;
@@ -32,6 +31,9 @@ public class App {
                         ac.removeResults();//removeResults 메소드를 이용해 삭제 수행
                     } else if (func.equals("inquiry")) { // inquiry 기능 구현
                         ac.inquiryResults(); // Calculator클래스의 inquiryResults 메소드를 이용해 결과 출력
+                    } else if (func.equals("lambda")){
+                        System.out.println("숫자를 입력하세요");
+                        ac.lambdaResults(sc.nextDouble());
                     }
                     sc.nextLine(); // 다음 반복문을 위해 스캐너 비워줌
                 } else if(feature == 2){ // 2입력시 원의 넓이 구하기 수행
