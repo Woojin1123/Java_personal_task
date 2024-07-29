@@ -26,6 +26,7 @@ public class App {
                         case '-' -> new SubtractOperator();
                         case '/' -> new DivideOperator();
                         case '*' -> new MultiplyOperator();
+                        case '%' -> new ModOperator();
                         default -> throw new IllegalArgumentException("잘못된 연산 기호입니다.");
                     };
                     int secondNumber = sc.nextInt();
