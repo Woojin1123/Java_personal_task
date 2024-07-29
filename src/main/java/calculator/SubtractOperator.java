@@ -1,8 +1,8 @@
 package calculator;
 
-public class SubtractOperator implements Operator {
+public class SubtractOperator<T extends Number> implements Operator<T> {
     @Override
-    public double operate(int firstNumber,int secondNumber){
-      return  firstNumber - secondNumber;
+    public double operate(T firstNumber,T secondNumber){
+      return  (double)firstNumber - (double)secondNumber;
     }
 }

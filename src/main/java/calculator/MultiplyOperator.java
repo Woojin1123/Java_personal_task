@@ -1,9 +1,9 @@
 package calculator;
 
-public class MultiplyOperator implements Operator {
+public class MultiplyOperator<T extends Number> implements Operator<T> {
   @Override
-  public double operate(int firstNumber,int secondNumber){
-    return  (double)firstNumber * secondNumber; //오버플로우 방지
+  public double operate(T firstNumber,T secondNumber){
+    return  (double)firstNumber * (double)secondNumber;
   }
 
 }
